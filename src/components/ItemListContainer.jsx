@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ItemListContainer = ({ language }) => {
   return (
     <div>
-      <Header />
+      <Header language={language} />
       <Catalogue language={language} />
     </div>
   );

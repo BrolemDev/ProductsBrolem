@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import PDFHead from './PDFHead';
 import PropTypes from 'prop-types';
 import 'tailwindcss/tailwind.css';
 
@@ -24,24 +25,31 @@ const PDFViewer = ({ language }) => {
   }
 
   return (
-    <div className="w-screen flex flex-col gap-5 justify-center items-center bg-gradient-to-b from-green-900 to-green-500 overflow-y-auto min-h-screen">
-      {loading ? (
-        <div className="loader">Cargando...</div>
-      ) : (
-        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-          {[...Array(numPages).keys()].map((pNum) => (
-            <div key={pNum} className="w-full flex justify-center">
-              <Page
-                pageNumber={pNum + 1}
-                width={Math.min(window.innerWidth * 0.9, 900)}
-                renderAnnotationLayer={false}
-                renderTextLayer={false}
-              />
-            </div>
-          ))}
-        </Document>
-      )}
+    <div>
+
+      <PDFHead></PDFHead>
+      <div className="w-screen flex flex-col gap-5 justify-center items-center bg-gradient-to-b from-green-900 to-green-500 overflow-y-auto min-h-screen">
+
+        {loading ? (
+          <div className="loader">Cargando...</div>
+        ) : (
+
+          <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+            {[...Array(numPages).keys()].map((pNum) => (
+              <div key={pNum} className="w-full flex justify-center">
+                <Page
+                  pageNumber={pNum + 1}
+                  width={Math.min(window.innerWidth * 0.9, 900)}
+                  renderAnnotationLayer={false}
+                  renderTextLayer={false}
+                />
+              </div>
+            ))}
+          </Document>
+        )}
+      </div>
     </div>
+
   );
 
 };

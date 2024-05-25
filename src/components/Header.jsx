@@ -4,13 +4,23 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { LinkIcon } from '@heroicons/react/24/outline';
 import LanguageDropdown from './LanguageDropdown'; // Asegúrate de ajustar la ruta si es necesario
+import PropTypes from 'prop-types';
 
 const navigation = [
-  { name: 'Discover more on our website', href: 'https://www.brolem.pe' },
+  {
+    nameEn: 'Discover more on our website',
+    nameKo: '우리 웹 사이트에서 더 많은 정보를 찾아보세요',
+    href: 'https://www.brolem.pe'
+  },
 ]
 
+Header.propTypes = {
+  language: PropTypes.string.isRequired
+};
 
-export default function Header() {
+export default function Header({ language }) {
+
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -19,8 +29,10 @@ export default function Header() {
         <div className="flex flex-1">
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                <LinkIcon className="h-5 w-5 inline-block mr-1" />  {item.name}
+              <a key={item.name} href={item.href} className="flex items-center text-sm font-semibold leading-6 text-gray-900">
+                <LinkIcon className="h-5 w-5 inline-block mr-1" /> { }
+                { }
+                {language === 'ko' ? item.nameKo : item.nameEn}
               </a>
             ))}
           </div>
@@ -36,8 +48,8 @@ export default function Header() {
           </div>
         </div>
         <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">Your Company</span>
-          <img className="h-11 w-auto" src="/img/logo.png" alt="" />
+          <span className="sr-only">Brolem</span>
+          <img className="h-9 w-auto" src="/img/logo.png" alt="" />
         </a>
         <div className="flex flex-1 justify-end items-center">
           <LanguageDropdown />
@@ -60,16 +72,11 @@ export default function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                className="h-11 w-auto"
+                className="h-9 w-auto"
                 src="/img/logo.png"
                 alt=""
               />
             </a>
-            <div className="flex flex-1 justify-end">
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                Log in <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
           </div>
           <div className="mt-6 space-y-2">
             {navigation.map((item) => (

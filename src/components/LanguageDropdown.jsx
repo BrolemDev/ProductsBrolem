@@ -4,10 +4,10 @@ import { useState } from 'react';
 
 const LanguageDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [selectedLanguage, setSelectedLanguage] = useState(window.location.pathname.startsWith('/ko') ? '한국어' : 'English');
 
   const toggleDropdown = () => setIsOpen(!isOpen);
-  
+
   const getKoreanLink = () => {
     const currentPath = window.location.pathname; // Obtiene la URL actual
     const newPath = currentPath.startsWith('/ko') ? currentPath : '/ko'; // Reemplaza cualquier segmento de idioma existente con '/ko'
