@@ -2,10 +2,13 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { LinkIcon } from '@heroicons/react/24/outline';
 import LanguageDropdown from './LanguageDropdown'; // Asegúrate de ajustar la ruta si es necesario
 
 const navigation = [
-];
+  { name: 'Discover more on our website', href: 'https://www.brolem.pe' },
+]
+
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,7 +20,7 @@ export default function Header() {
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
+                <LinkIcon className="h-5 w-5 inline-block mr-1" />  {item.name}
               </a>
             ))}
           </div>

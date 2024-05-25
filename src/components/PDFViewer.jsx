@@ -30,10 +30,10 @@ const PDFViewer = ({ language }) => {
       ) : (
         <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
           {[...Array(numPages).keys()].map((pNum) => (
-            <div key={pNum} className="w-full flex justify-center mt-4">
+            <div key={pNum} className="w-full flex justify-center">
               <Page
                 pageNumber={pNum + 1}
-                width={Math.min(window.innerWidth * 0.9, 1000)}
+                width={Math.min(window.innerWidth * 0.9, 900)}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
               />

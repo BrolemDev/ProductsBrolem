@@ -1,4 +1,5 @@
 // LanguageDropdown.js
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const LanguageDropdown = () => {
@@ -6,11 +7,18 @@ const LanguageDropdown = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
 
   const toggleDropdown = () => setIsOpen(!isOpen);
-
+  
+  const getKoreanLink = () => {
+    const currentPath = window.location.pathname; // Obtiene la URL actual
+    const newPath = currentPath.startsWith('/ko') ? currentPath : '/ko'; // Reemplaza cualquier segmento de idioma existente con '/ko'
+    return newPath;
+  };
   const languages = [
-    { name: 'English', flag: '🇬🇧' , href:'/'},
-    { name: '한국어', flag: '🇰🇷', href:'ko'},
+    { name: 'English', flag: '🇬🇧', href: '/' },
+    { name: '한국어', flag: '🇰🇷', href: getKoreanLink() },
   ];
+
+
 
   return (
     <div className="relative inline-block text-left">
@@ -49,21 +57,19 @@ const LanguageDropdown = () => {
         >
           <div className="py-1" role="none">
             {languages.map((language) => (
-              <a
+              <Link
                 key={language.name}
-                href={language.href}
+                to={language.href}
                 className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
-                onClick={(e) => {
-                  e.preventDefault(); // Evitar la recarga de la página
+                onClick={() => {
                   setSelectedLanguage(language.name);
                   setIsOpen(false);
                 }}
               >
                 <span className="mr-3">{language.flag}</span>
                 {language.name}
-              </a>
-
+              </Link>
             ))}
           </div>
         </div>
