@@ -45,6 +45,7 @@ export default function Header({ language }) {
               <span className="sr-only">Open main menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
+
           </div>
         </div>
         <a href="#" className="-m-1.5 p-1.5">
@@ -79,13 +80,11 @@ export default function Header({ language }) {
             </a>
           </div>
           <div className="mt-6 space-y-2">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >
-                {item.name}
+          {navigation.map((item) => (
+              <a key={item.name} href={item.href} className="flex items-center text-sm font-semibold leading-6 text-gray-900">
+                <LinkIcon className="h-5 w-5 inline-block mr-1" /> { }
+                { }
+                {language === 'ko' ? item.nameKo : item.nameEn}
               </a>
             ))}
           </div>
