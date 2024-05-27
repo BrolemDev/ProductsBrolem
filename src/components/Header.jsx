@@ -80,10 +80,9 @@ export default function Header({ language }) {
             </a>
           </div>
           <div className="mt-6 space-y-2">
-          {navigation.map((item) => (
+            {navigation.map((item) => (
               <a key={item.name} href={item.href} className="flex items-center text-sm font-semibold leading-6 text-gray-900">
-                <LinkIcon className="h-5 w-5 inline-block mr-1" /> { }
-                { }
+                <LinkIcon className="h-5 w-5 inline-block mr-1" />
                 {language === 'ko' ? item.nameKo : item.nameEn}
               </a>
             ))}

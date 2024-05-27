@@ -15,7 +15,13 @@ export default function PDFHead() {
           <img className="h-8 w-auto" src="/img/logo.png" alt="" />
         </a>
         <div className="flex flex-1 justify-end">
-          <button onClick={() => { window.history.back(); }} className="text-sm font-semibold leading-6 text-slate-100 focus:outline-none">
+          <button onClick={() => {
+            if (window.history.length > 1) {
+              window.history.back();
+            } else {
+              window.location.href = "/";
+            }
+          }} className="text-sm font-semibold leading-6 text-gray-900 focus:outline-none">
             Regresar <span aria-hidden="true">&larr;</span>
           </button>
         </div>
@@ -43,7 +49,13 @@ export default function PDFHead() {
               />
             </a>
             <div className="flex flex-1 justify-end">
-              <button onClick={() => { window.history.back(); }} className="text-sm font-semibold leading-6 text-gray-900 focus:outline-none">
+              <button onClick={() => {
+                if (window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  window.location.href = "/";
+                }
+              }} className="text-sm font-semibold leading-6 text-gray-900 focus:outline-none">
                 Regresar <span aria-hidden="true">&rarr;</span>
               </button>
             </div>
