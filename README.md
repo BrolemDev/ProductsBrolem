@@ -11,12 +11,12 @@
     <img src="https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
     <img src="https://img.shields.io/badge/-TailwindCSS-black?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4" alt="TailwindCSS" />
     <img src="https://img.shields.io/badge/-Inglés-blue?style=for-the-badge" alt="Inglés" />
-    <img src="https://img.shields.io/badge/-Japonés-red?style=for-the-badge" alt="Japonés" />
+    <img src="https://img.shields.io/badge/-Coreano-red?style=for-the-badge" alt="Coreano" />
   </div>
 
   <h2 align="center">Galería de Productos Brolem 📦</h2>
   <p align="center">
-    Aplicación interactiva para mostrar los <b>productos que Brolem exporta</b> en inglés y japonés.<br>
+    Aplicación interactiva para mostrar los <b>productos que Brolem exporta</b> en inglés y coreano<br>
     Navega por catálogos de productos en imágenes (convertidas desde PDF).<br>
     Selecciona el idioma, revisa detalles y accede a recursos descargables de cada producto.
   </p>
@@ -49,7 +49,7 @@ Este proyecto es una galería web bilingüe (inglés y coreano) para presentar l
 - **JavaScript** (lógica)
 - **Tailwind CSS** (estilos)
 - **PDF.js & react-pdf** (renderizado PDF, imágenes desde PDFs)
-- **Soporte multilenguaje** (inglés y japonés)
+- **Soporte multilenguaje** (inglés y coreano)
 
 ---
 
